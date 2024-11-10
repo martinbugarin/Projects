@@ -1,0 +1,265 @@
+body {
+
+    font-family: sans-serif;
+    font-size: 25px;
+    display: flex;
+
+}
+
+.calendar {
+    margin: 0 0;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+}
+
+/* .week {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+} */
+
+
+.day:nth-child(n+8) {
+    background-color: white;
+}
+
+.day:nth-child(n+15) {
+    background-color: lightgreen;
+}
+
+.day:nth-child(n+22) {
+    background-color: white;
+}
+
+.day:nth-child(n+29) {
+    background-color: lightgreen;
+}
+
+.day:nth-child(n+36) {
+    background-color: white;
+}
+
+.day:nth-child(n+43) {
+    background-color: lightgreen;
+}
+
+.day {
+    width: 13.4%;
+    height: 6rem;
+    background-color: lightgreen;
+    position: relative;
+    border: 2px solid black;
+    color: black;
+}
+
+.day .text {
+    font-size: 15px;
+}
+
+#current-day {
+    background-color: cyan;
+}
+
+#current-day:hover {
+    background-color: rgb(0, 184, 184);
+}
+
+.day:hover {
+    background-color: lightgray;
+}
+
+.sunday .num-of-day {
+    font-weight: bold;
+    color: red;
+}
+
+.sunday .name-of-day {
+    font-weight: bold;
+    color: red;
+
+}
+
+.name-of-day {
+    float: left;
+    margin: 0;
+    display: none;
+}
+
+.num-of-day {
+    margin: 0;
+
+    float: right;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.name-of-day-top {
+    width: 13.4%;
+    margin: 1rem 1.5px;
+    text-align: center;
+}
+
+.name-of-day-top:last-of-type {
+    font-weight: bold;
+    color: red;
+}
+
+
+.text {
+    float: left;
+}
+
+.navigation {
+    width: 25%;
+    margin: 2rem 0;
+}
+
+.year-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.year-nav p {
+    float: left;
+    /*margin-left: 1rem;*/
+    margin-top: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: black;
+    user-select: none;
+    transition: 200ms;
+}
+
+.year-nav p:hover {
+    cursor: pointer;
+    color: lightgreen;
+
+}
+
+.year-nav p:active {
+    color: cyan;
+}
+
+.year-nav #year-text {
+    width: 3rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    border-radius: 10px;
+    border-color: lightgreen;
+    transition: 250ms;
+}
+
+.year-nav #year-text:focus {
+    outline: none;
+    border-color: black;
+    /*background-color: lightgreen;*/
+}
+
+.months {
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.months p {
+    margin: 1rem 0.2rem;
+    width: 2rem;
+    transition: 200ms;
+    user-select: none;
+}
+
+.months p:hover {
+    cursor: pointer;
+    color: lightgreen;
+
+}
+
+.selected-button {
+    /*font-weight: bold;*/
+    border-bottom: 3px solid rgb(91, 154, 91);
+}
+
+#today-button {
+    display: block;
+    background-color: white;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 9rem;
+    margin: 1rem auto;
+    text-align: center;
+    user-select: none;
+    transition: 250ms;
+
+}
+
+#today-button:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+
+}
+
+#today-button:active {
+    background-color: cyan;
+}
+
+@media screen and (max-width: 840px) {
+    .day {
+        width: 10rem;
+        /*height: 4rem;*/
+    }
+
+    .name-of-day-top {
+        display: none;
+    }
+
+    .name-of-day {
+        display: block;
+        margin-left: 0.5rem;
+    }
+
+    .num-of-day {
+        margin-right: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .year-nav {
+        display: block;
+    }
+
+    .year-nav p {
+        transition: none;
+        float: none;
+        display: block;
+        width: fit-content;
+        margin: 0.1rem auto;
+
+    }
+
+
+    .year-nav #year-text {
+        transition: none;
+        float: none;
+        display: block;
+        margin: 0.1rem auto;
+
+    }
+
+    #today-button {
+        width: 4rem;
+    }
+
+    .months {
+        justify-content: center;
+    }
+}

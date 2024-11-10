@@ -1,0 +1,87 @@
+body {
+    font-family: sans-serif;
+}
+
+h2 {
+    /*border-bottom: 2px solid black;*/
+    width: fit-content
+}
+
+.kategorija {
+    display: flex;
+
+    flex-wrap: wrap;
+}
+
+
+.kategorija .obaveza {
+    list-style-type: none;
+    margin: 0.5rem 2rem;
+    /* margin-top: 0.5rem;
+    color: orange;
+    font-weight: bold; */
+}
+
+/* .blagdani .obaveza {
+    margin-top: 0.5rem;
+    color: green;
+    font-weight: bold;
+} */
+
+/* .obaveza p {
+    display: inline
+} */
+
+
+.hidden {
+    display: none;
+}
+
+.content {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.crossed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delete-form {
+    float: left;
+    width: fit-content;
+}
+
+.cross-button {
+    font-weight: bold;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0;
+    /* margin-top: .4rem; */
+    color: #198754;
+    background-color: #dc3545;
+    text-align: center;
+    border-radius: 5px;
+    transition: 200ms;
+    user-select: none;
+    border: none;
+}
+
+.cross-form {
+    float: right;
+}
+
+.rijeseno .cross-button {
+    background-color: #198754;
+    color: #dc3545;
+}
+
+.cross-button:hover {
+    background-color: #198754;
+    color: white;
+}
+
+.rijeseno .cross-button:hover {
+    background-color: #dc3545;
+    color: white;
+}

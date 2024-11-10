@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day</title>
+    <link rel="stylesheet" href="/css/day.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+
+<body>
+    <h1 style="text-align: center;">
+        <a href="/">
+            <%= day %>.<%= month %>.<%= year %>.
+        </a>
+    </h1>
+    <hr>
+    <div class="content">
+        <h2>Blagdani</h2>
+        <ul class="blagdani kategorija">
+            <% for(res of results) {%>
+                <% if(res.tipbiljeske=="blagdan" ) {%>
+                    <li class="obaveza">
+                        <div class="card text-dark bg-info mb-3" style="max-width: 18rem;" crossed="false">
+                            <div class="card-header text-dark">Holiday</div>
+                            <div class="bg-light card-body">
+                                <h5 class="card-title">
+                                    <%= res.sadrzaj%>
+                                </h5>
+                            </div>
+                            <form class="delete-form" action="/<%= year %>/<%= month %>/<%= day %>/remove"
+                                method="post">
+                                <input type="checkbox" checked hidden name="ukloni" id="remove-checker"
+                                    value="<%= res.idbiljeske %>">
+                                <input type="submit" value="Remove" class="removeBtn btn btn-info">
+                            </form>
+                        </div>
+
+                    </li>
+                    <%}%>
+                        <%}%>
+                            <div class="card text-dark bg-info mt-2 mb-4 obaveza" style="max-width: 18rem;">
+                                <div class="card-header"><button class="btn btn-info text-dark" id="blagdan-butt"
+                                        onclick="showBlagdanForm()">Dodaj
+                                        blagdan</button></div>
+                                <div class="card-body bg-light">
+                                    <!-- <h5 class="card-title"></h5> -->
+                                    <p class="card-text">
+                                    <form action="/<%= year %>/<%= month %>/<%= day %>" method="post" id="blagdan-form"
+                                        class="hidden">
+                                        <textarea name="sadrzajObveze" id="sadrzaj" cols="30" rows="4"
+                                            class="border-info"></textarea>
+                                        <input type="checkbox" checked hidden name="tipBiljeske" value="blagdan">
+                                        <input type="submit" value="Spremi">
+                                    </form>
+                                    </p>
+                                </div>
+                            </div>
+
+        </ul>
+        <hr>
+        <h2>Obaveze</h2>
+        <ul class="obveze kategorija">
+            <% for(res of results) {%>
+                <% if(res.tipbiljeske=="obveza" ) {%>
+                    <li class="obaveza">
+                        <div class="card text-dark bg-danger mb-3" style="max-width: 18rem;" crossed="false">
+                            <div class="card-header text-light"><span class="card-title-text">Important</span>
+                                <form action="/<%= year %>/<%= month %>/<%= day %>/cross" method="post"
+                                    class="cross-form">
+                                    <input type="checkbox" checked hidden name="idBilj" value="<%= res.idbiljeske %>">
+                                    <input type="checkbox" checked hidden name="tipBiljeske" value="rijeseno">
+                                    <input class="cross-button" type="submit" value="&#x2713">
+                                </form>
+                                <!-- <p class="cross-button">&#x2713</p> -->
+                            </div>
+                            <div class="bg-light card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">
+                                    <%= res.sadrzaj%>
+                                </p>
+                            </div>
+                            <form class="delete-form" action="/<%= year %>/<%= month %>/<%= day %>/remove"
+                                method="post">
+                                <input type="checkbox" checked hidden name="ukloni" id="remove-checker"
+                                    value="<%= res.idbiljeske %>">
+                                <input type="submit" value="Remove" class="removeBtn btn btn-danger">
+
+                            </form>
+
+                        </div>
+                    </li>
+                    <%}%>
+                        <%}%>
+
+                            <% for(res of results) {%>
+                                <% if(res.tipbiljeske=="rijeseno" ) {%>
+                                    <li class="obaveza rijeseno">
+                                        <div class="card text-dark bg-success mb-3" style="max-width: 18rem;"
+                                            crossed="false">
+                                            <div class="card-header text-light"><span
+                                                    class="card-title-text">Done</span>
+                                                <form action="/<%= year %>/<%= month %>/<%= day %>/cross" method="post"
+                                                    class="cross-form">
+                                                    <input type="checkbox" checked hidden name="idBilj"
+                                                        value="<%= res.idbiljeske %>">
+                                                    <input type="checkbox" checked hidden name="tipBiljeske"
+                                                        value="obveza">
+                                                    <input class="cross-button" type="submit" value="X">
+                                                </form>
+                                                <!-- <p class="cross-button">&#x2713</p> -->
+                                            </div>
+                                            <div class="bg-light card-body">
+                                                <h5 class="card-title"></h5>
+                                                <p class="card-text">
+                                                    <%= res.sadrzaj%>
+                                                </p>
+                                            </div>
+                                            <form class="delete-form"
+                                                action="/<%= year %>/<%= month %>/<%= day %>/remove" method="post">
+                                                <input type="checkbox" checked hidden name="ukloni" id="remove-checker"
+                                                    value="<%= res.idbiljeske %>">
+                                                <input type="submit" value="Remove" class="removeBtn btn btn-success">
+
+                                            </form>
+
+                                        </div>
+                                    </li>
+                                    <%}%>
+                                        <%}%>
+
+                                            <div class="card text-dark bg-secondary mt-2 mb-4 obaveza"
+                                                style="max-width: 18rem;">
+                                                <div class="card-header"><button class="text-light btn btn-outline-dark"
+                                                        id="obveza-butt" onclick="showObvezaForm()">Dodaj
+                                                        obvezu</button></div>
+                                                <div class="card-body bg-light">
+                                                    <!-- <h5 class="card-title"></h5> -->
+                                                    <p class="card-text">
+                                                    <form action="/<%= year %>/<%= month %>/<%= day %>" method="post"
+                                                        id="obveza-form" class="hidden">
+                                                        <textarea name="sadrzajObveze" id="sadrzaj" cols="30" rows="4"
+                                                            class="border-secondary"></textarea>
+                                                        <input type="checkbox" checked hidden name="tipBiljeske"
+                                                            value="obveza">
+                                                        <input type="submit" value="Spremi"
+                                                            class="btn btn-outline-secondary">
+                                                    </form>
+                                                    </p>
+                                                </div>
+                                            </div>
+        </ul>
+        <br>
+        <hr>
+    </div>
+
+    <script src="/scripts/day.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Planer</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <div class="year-nav">
+            <p id="pre-year" onclick="changeYear(getYear()-1)">&#9664</p>
+            <input type="text" id="year-text">
+            <!-- <a href="#" id="year-text">2023</a> -->
+            <p id="post-year" onclick="changeYear(getYear()+1)">&#9654</p>
+        </div>
+        <div class="months">
+            <p month="1" onclick="generateCalendar(getYear(), 1)">Jan</p>
+            <p month="2" onclick="generateCalendar(getYear(), 2)">Feb</p>
+            <p month="3" onclick="generateCalendar(getYear(), 3)">Mar</p>
+            <p month="4" onclick="generateCalendar(getYear(), 4)">Apr</p>
+            <p month="5" onclick="generateCalendar(getYear(), 5)">May</p>
+            <p month="6" onclick="generateCalendar(getYear(), 6)">Jun</p>
+            <p month="7" onclick="generateCalendar(getYear(), 7)">Jul</p>
+            <p month="8" onclick="generateCalendar(getYear(), 8)">Aug</p>
+            <p month="9" onclick="generateCalendar(getYear(), 9)">Sep</p>
+            <p month="10" onclick="generateCalendar(getYear(), 10)">Oct</p>
+            <p month="11" onclick="generateCalendar(getYear(), 11)">Nov</p>
+            <p month="12" onclick="generateCalendar(getYear(), 12)">Dec</p>
+        </div>
+        <div>
+            <button id="today-button" onclick="setToTodaysDate()">Set to today</button>
+        </div>
+    </div>
+    <div class="calendar">
+        <p class="name-of-day-top">Mon</p>
+        <p class="name-of-day-top">Tue</p>
+        <p class="name-of-day-top">Wed</p>
+        <p class="name-of-day-top">Thu</p>
+        <p class="name-of-day-top">Fri</p>
+        <p class="name-of-day-top">Sat</p>
+        <p class="name-of-day-top">Sun</p>
+
+        <!-- <a href="#" class="day">
+            <p class="name-of-day">Mon</p>
+            <p class="num-of-day">1</p>
+            <p class="text"></p>
+        </a>
+        <a href="#" class="day">
+            <p class="name-of-day">Tue</p>
+            <p class="num-of-day">1</p>
+            <p class="text"></p>
+        </a>
+        <a href="#" class="day">
+            <p class="name-of-day">Wed</p>
+            <p class="num-of-day">1</p>
+            <p class="text"></p>
+        </a>
+        <a href="#" class="day">
+            <p class="name-of-day">Thu</p>
+            <p class="num-of-day">1</p>
+            <p class="text"></p>
+        </a>
+        <a href="#" class="day">
+            <p class="name-of-day">Fri</p>
+            <p class="num-of-day">1</p>
+            <p class="text"></p>
+        </a>
+        <a href="#" class="day">
+            <p class="name-of-day">Sat</p>
+            <p class="num-of-day">1</p>
+            <p class="text"></p>
+        </a>
+        <a href="#" class="day sunday">
+            <p class="name-of-day">Sun</p>
+            <p class="num-of-day">1</p>
+            <p class="text"></p>
+        </a> -->
+
+
+    </div>
+
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
